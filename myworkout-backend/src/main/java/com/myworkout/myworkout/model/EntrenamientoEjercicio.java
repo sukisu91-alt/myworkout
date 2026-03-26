@@ -1,5 +1,6 @@
 package com.myworkout.myworkout.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class EntrenamientoEjercicio {
 
     @ManyToOne
     @JoinColumn(name = "entrenamiento_id")
+    @JsonIgnoreProperties("ejercicios")
     private Entrenamiento entrenamiento;
 
     @ManyToOne
@@ -26,7 +28,6 @@ public class EntrenamientoEjercicio {
 
     private Double pesoKg;
 
-    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

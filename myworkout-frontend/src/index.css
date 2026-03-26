@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f172a;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  padding: 40px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.stat-card .stat-info p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.stat-card .stat-info h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  text-align: left;
+}
+
+.stat-card .stat-info span {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.icon-orange { background: #f97316; }
+.icon-teal { background: #14b8a6; }
+.icon-yellow { background: #eab308; }
+
+.historial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.historial-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+}
+
+.btn-new {
+  background: white;
+  color: #0f172a;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-new:hover { opacity: 0.85; }
+
+.entrenamientos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.entrenamiento-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: border 0.2s;
+  border: 1px solid transparent;
+}
+
+.entrenamiento-card:hover {
+  border-color: #f97316;
+}
+
+.entrenamiento-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.entrenamiento-card .fecha {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ejercicio-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #2d3748;
+  font-size: 0.9rem;
+}
+
+.ejercicio-row span:first-child { color: #e2e8f0; }
+.ejercicio-row span:last-child { color: #94a3b8; }
+
+.duracion {
+  margin-top: 16px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-eliminar {
+  margin-top: 16px;
+  background: #7f1d1d;
+  color: #fca5a5;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.btn-eliminar:hover { opacity: 0.85; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 32px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.form-group input {
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  color: #0f172a;
+}
+
+.form-group input:focus {
+  border-color: #f97316;
+}
+
+.ejercicios-section {
+  margin-top: 20px;
+}
+
+.ejercicios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ejercicios-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.btn-add-ejercicio {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ejercicio-form {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.ejercicio-form p {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.ejercicio-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.btn-cancelar {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-guardar {
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-guardar:hover { opacity: 0.85; }
+
+.empty {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 60px;
+  font-size: 1.1rem;
+}

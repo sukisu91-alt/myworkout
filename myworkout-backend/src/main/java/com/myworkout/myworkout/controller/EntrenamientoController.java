@@ -1,5 +1,6 @@
 package com.myworkout.myworkout.controller;
 
+import com.myworkout.myworkout.dto.EntrenamientoDTO;
 import com.myworkout.myworkout.model.Entrenamiento;
 import com.myworkout.myworkout.service.EntrenamientoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class EntrenamientoController {
     }
 
     @PostMapping
-    public Entrenamiento create(@RequestBody Entrenamiento entrenamiento) {
-        return entrenamientoService.save(entrenamiento);
+    public Entrenamiento create(@RequestBody EntrenamientoDTO dto) {
+        return entrenamientoService.saveFromDTO(dto);
     }
 
     @PutMapping("/{id}")

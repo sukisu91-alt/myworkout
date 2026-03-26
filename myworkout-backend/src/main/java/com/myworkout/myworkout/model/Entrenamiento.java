@@ -17,10 +17,11 @@ public class Entrenamiento {
 
     private String notas;
 
+    private String duracion;
+
     @OneToMany(mappedBy = "entrenamiento", cascade = CascadeType.ALL)
     private List<EntrenamientoEjercicio> ejercicios;
 
-    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -29,6 +30,9 @@ public class Entrenamiento {
 
     public String getNotas() { return notas; }
     public void setNotas(String notas) { this.notas = notas; }
+
+    public String getDuracion() { return duracion; }
+    public void setDuracion(String duracion) { this.duracion = duracion; }
 
     public List<EntrenamientoEjercicio> getEjercicios() { return ejercicios; }
     public void setEjercicios(List<EntrenamientoEjercicio> ejercicios) { this.ejercicios = ejercicios; }
