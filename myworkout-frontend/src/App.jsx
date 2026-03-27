@@ -16,6 +16,7 @@ function App() {
   const [inputNombre, setInputNombre] = useState('');
   const [filtro, setFiltro] = useState('');
   const [cargando, setCargando] = useState(false);
+  const [mensajeExito, setMensajeExito] = useState('');
 
   useEffect(() => {
     cargarEntrenamientos();
@@ -104,6 +105,8 @@ function App() {
       setDuracion('');
       setEjercicios([{ nombre: '', series: 3, repeticiones: 10, pesoKg: 0 }]);
       cargarEntrenamientos();
+      setMensajeExito(editando ? '¡Entrenamiento actualizado! ✏️' : '¡Entrenamiento guardado! 💪');
+      setTimeout(() => setMensajeExito(''), 3000);
     } catch (error) {
       console.error('Error al guardar:', error.response?.data || error.message);
     } finally {
@@ -143,7 +146,19 @@ function App() {
           maxWidth: '480px',
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '4rem', marginBottom: '16px' }}>💪</div>
+          <div style={{
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #f97316, #ef4444)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '3rem',
+            margin: '0 auto 24px'
+          }}>
+            {inputNombre ? '🏋️' : '💪'}
+          </div>
           <h1 style={{ fontSize: '2rem', fontWeight: '900', color: 'white', marginBottom: '8px' }}>
             MyWorkout
           </h1>
@@ -185,6 +200,12 @@ function App() {
 
   return (
     <div>
+      {mensajeExito && (
+        <div className="notificacion">
+          ✅ {mensajeExito}
+        </div>
+      )}
+
       <div className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <h1>💪 MyWorkout</h1>
@@ -274,14 +295,11 @@ function App() {
                 <p className="duracion">📊 Duración: {e.duracion}</p>
               )}
               <div style={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
-                <button
-                  onClick={() => abrirEditar(e)}
-                  style={{
-                    flex: 1, background: '#1e3a5f', color: '#60a5fa',
-                    border: 'none', borderRadius: '8px', padding: '6px 14px',
-                    cursor: 'pointer', fontSize: '0.8rem', fontWeight: '700'
-                  }}
-                >
+                <button onClick={() => abrirEditar(e)} style={{
+                  flex: 1, background: '#1e3a5f', color: '#60a5fa',
+                  border: 'none', borderRadius: '8px', padding: '6px 14px',
+                  cursor: 'pointer', fontSize: '0.8rem', fontWeight: '700'
+                }}>
                   ✏️ Editar
                 </button>
                 <button className="btn-eliminar" style={{ flex: 1 }}
@@ -293,6 +311,23 @@ function App() {
           ))}
         </div>
       </div>
+
+      <footer style={{
+        background: '#0a0f1e',
+        borderTop: '1px solid #1e293b',
+        padding: '20px 40px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: '40px'
+      }}>
+        <span style={{ color: '#475569', fontSize: '0.85rem' }}>
+          💪 MyWorkout — Tu diario de entrenamientos
+        </span>
+        <span style={{ color: '#475569', fontSize: '0.85rem' }}>
+          © 2026 Sukaina Hadani
+        </span>
+      </footer>
 
       {modalAbierto && (
         <div className="modal-overlay">

@@ -79,9 +79,17 @@ body {
   font-size: 1.4rem;
 }
 
-.icon-orange { background: #f97316; }
-.icon-teal { background: #14b8a6; }
-.icon-yellow { background: #eab308; }
+.icon-orange {
+  background: #f97316;
+}
+
+.icon-teal {
+  background: #14b8a6;
+}
+
+.icon-yellow {
+  background: #eab308;
+}
 
 .historial-header {
   display: flex;
@@ -108,7 +116,9 @@ body {
   transition: opacity 0.2s;
 }
 
-.btn-new:hover { opacity: 0.85; }
+.btn-new:hover {
+  opacity: 0.85;
+}
 
 .entrenamientos-grid {
   display: grid;
@@ -154,8 +164,13 @@ body {
   font-size: 0.9rem;
 }
 
-.ejercicio-row span:first-child { color: #e2e8f0; }
-.ejercicio-row span:last-child { color: #94a3b8; }
+.ejercicio-row span:first-child {
+  color: #e2e8f0;
+}
+
+.ejercicio-row span:last-child {
+  color: #94a3b8;
+}
 
 .duracion {
   margin-top: 16px;
@@ -178,14 +193,18 @@ body {
   font-weight: 700;
 }
 
-.btn-eliminar:hover { opacity: 0.85; }
+.btn-eliminar:hover {
+  opacity: 0.85;
+}
 
 /* MODAL */
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -335,11 +354,73 @@ body {
   cursor: pointer;
 }
 
-.btn-guardar:hover { opacity: 0.85; }
+.btn-guardar:hover {
+  opacity: 0.85;
+}
 
 .empty {
   text-align: center;
   color: #94a3b8;
   margin-top: 60px;
   font-size: 1.1rem;
+}
+
+.notificacion {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: linear-gradient(90deg, #16a34a, #15803d);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  z-index: 999;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+.header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 24px 40px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+}
+
+.entrenamiento-card {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entrenamiento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.15);
+}
+
+.stat-card {
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
 }
